@@ -1,0 +1,28 @@
+{
+	"name": "entertainment-web-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node backend/server.js",
+		"server": "nodemon backend/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mzdemir/entertainment-web-app.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"bugs": {
+		"url": "https://github.com/mzdemir/entertainment-web-app/issues"
+	},
+	"homepage": "https://github.com/mzdemir/entertainment-web-app#readme",
+	"dependencies": {
+		"dotenv": "^17.3.1",
+		"express": "^5.2.1",
+		"mongoose": "^9.3.1",
+		"nodemon": "^3.1.14"
+	}
+}
