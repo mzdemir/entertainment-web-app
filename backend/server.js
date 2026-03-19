@@ -4,6 +4,7 @@ import {apiRouter} from "./routes/bookmarkRoute.js"
 import {userRouter} from "./routes/userRoutes.js"
 import {errorHandler} from "./middlewares/errorMiddleware.js"
 import {connectDB} from "./config/mongodb.js"
+import {mediaRouter} from "./routes/mediaRoute.js"
 
 dotenv.config()
 connectDB()
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use("/bookmarks", apiRouter)
 app.use("/users", userRouter)
+app.use("/", mediaRouter)
 
 app.use(errorHandler)
 
