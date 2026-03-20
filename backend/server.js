@@ -16,8 +16,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 app.use("/bookmarks", apiRouter)
-app.use("/users", userRouter)
-app.use("/", mediaRouter)
+app.use("/api/users", userRouter)
+app.use("/api/media", mediaRouter)
 
 app.use(errorHandler)
 

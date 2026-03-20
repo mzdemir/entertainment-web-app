@@ -8,7 +8,7 @@ export default function Home() {
 
 	useEffect(() => {
 		async function getMedia() {
-			const response = await fetch("/data.json")
+			const response = await fetch("/api/media")
 			const data = await response.json()
 			setMediaToDisplay(data)
 		}

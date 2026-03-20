@@ -4,6 +4,7 @@
 	--color-blue-950: #10141e;
 	--color-blue-900: #161d2f;
 	--color-blue-500: #5a698f;
+	--color-red-500: #fc4747;
 }
 
 @custom-variant hocus (&:hover, &:focus-visible);
@@ -61,8 +62,35 @@
 	font-weight: 300;
 }
 
+.primary-btn {
+	background-color: var(--color-red-500);
+	width: 100%;
+	padding-block: 0.875rem;
+	border-radius: 0.375rem;
+	font-weight: 300;
+}
+
+.primary-btn:hover,
+.primary-btn:focus-visible {
+	background-color: white;
+	color: black;
+	outline: none;
+}
+
 body {
 	font-family: "Outfit", sans-serif;
-	line-height: 1.25;
+	line-height: 125%;
 	letter-spacing: 0px;
+	background-color: var(--color-blue-950);
+	color: white;
+}
+
+/* Override Chrome / Edge autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-text-fill-color: white !important;
+	box-shadow: 0 0 0 1000px var(--color-blue-900) inset !important;
+	background-color: transparent !important;
 }

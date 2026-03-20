@@ -4,8 +4,8 @@ import {userModal} from "../models/userModel.js"
 
 // register user POST "/users /public"
 export const registerUser = async (req, res) => {
-	const {name, email, password} = req.body
-	if (!name || !email || !password) {
+	const {email, password} = req.body
+	if (!email || !password) {
 		res.status(400)
 		throw new Error("Please add all fields")
 	}
@@ -19,12 +19,11 @@ export const registerUser = async (req, res) => {
 	const salt = await bcrypt.genSalt(10)
 	const hashedPassword = await bcrypt.hash(password, salt)
 
-	const user = await userModal.create({name, email, password: hashedPassword})
+	const user = await userModal.create({email, password: hashedPassword})
 	// prettier-ignore
 	if (user) {
 		res.status(201).json({
       _id: user.id, 
-      name: user.name, 
       email: user.email, 
       token: generateToken(user._id)
     })
@@ -45,7 +44,6 @@ export const loginUser = async (req, res) => {
 	if (user && (await bcrypt.compare(password, user.password))) {
 		res.json({
       _id: user.id, 
-      name: user.name, 
       email: user.email, 
       token: generateToken(user._id)
     })
@@ -59,8 +57,8 @@ export const loginUser = async (req, res) => {
 
 // get user data get "/users/login/me /private"
 export const getMe = async (req, res) => {
-	const {_id, name, email} = await userModal.findById(req.user.id)
-	res.status(200).json({id: _id, name, email})
+	const {_id, email} = await userModal.findById(req.user.id)
+	res.status(200).json({id: _id, email})
 }
 
 const generateToken = id => {

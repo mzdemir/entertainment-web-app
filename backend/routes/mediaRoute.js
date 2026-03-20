@@ -4,4 +4,4 @@ import {protect} from "../middlewares/authMiddleware.js"
 
 export const mediaRouter = express.Router()
 
-mediaRouter.get("/", protect, fetchMedia)
+mediaRouter.get("/", fetchMedia)

@@ -1,3 +1,4 @@
+import Logo from "../assets/logo.svg"
 import HomeIcon from "../assets/icon-nav-home.svg?react"
 import MoviesIcon from "../assets/icon-nav-movies.svg?react"
 import TvSeriesIcon from "../assets/icon-nav-tv-series.svg?react"
@@ -7,10 +8,10 @@ import {NavLink} from "react-router-dom"
 export default function Header() {
 	return (
 		<header className="flex items-center justify-between bg-blue-900 p-4">
-			<img className="size-6" src="/logo.svg" aria-hidden="true" />
+			<img className="size-6" src={Logo} aria-hidden="true" />
 			<nav className="flex items-center gap-6 py-1 text-blue-500">
 				<NavLink
-					to="/"
+					to="/home"
 					className={({isActive}) => `hocus:text-red-500 hocus:outline-none ${isActive ? "text-white" : ""}`}>
 					<HomeIcon className="size-4" />
 				</NavLink>
