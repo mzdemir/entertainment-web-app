@@ -1,19 +1,13 @@
 import mongoose from "mongoose"
 
-// prettier-ignore
 const bookmarkSchema = mongoose.Schema(
 	{
-		user: {
-			type: mongoose.Schema.Types.ObjectId,
-			required: true,
-			ref: "User"
-		},
-		text: {
-			type: String,
-			required: true,
-			//
-			//
-		},
+		user: {type: mongoose.Schema.Types.ObjectId, required: true, ref: "User"},
+		title: {type: String, required: true},
+		year: {type: Number, required: true},
+		category: {type: String, required: true},
+		rating: {type: String, required: true},
+		thumbnailSrc: {type: String, required: true},
 	},
 	{timestamps: true},
 )
